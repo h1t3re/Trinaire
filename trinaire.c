@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 
-void convert_int_to_binary(int *bits, int number, int mask, int binary_length)
+void convert_int_to_binary(int *binary_number, int number, int mask, int binary_length)
 {
 	int mask_shifted = 0;
 	int number_and_mask = 0;
@@ -11,7 +11,7 @@ void convert_int_to_binary(int *bits, int number, int mask, int binary_length)
 	{
 		mask_shifted = mask << i;
 		number_and_mask = number & mask_shifted;
-		bits[i] = number_and_mask >> i;
+		binary_number[i] = number_and_mask >> i;
 	}
 	mask_shifted = 0;
 	number_and_mask = 0;
@@ -20,37 +20,36 @@ void convert_int_to_binary(int *bits, int number, int mask, int binary_length)
 int main(int argc, char const *argv[])
 {
 	int architecture = 32; // or 64
-	int *bits = (int *)malloc(architecture*sizeof(int));
-	convert_int_to_binary(bits, 2147483647, 1, architecture);
+	int *binary_number = (int *)malloc(architecture*sizeof(int));
+	convert_int_to_binary(binary_number, 2147483647, 1, architecture);
 	printf("mask 1 : 2147483647 = %d (int) = ", 2147483647);
 	for (int i = architecture-1; i >= 0; --i)
 	{
 		printf("%d ", bits[i]);
 	}
 	printf("\n\n");
-	convert_int_to_binary(bits, 2147483648, 1, architecture);
+	convert_int_to_binary(binary_number, 2147483648, 1, architecture);
 	printf("mask 1 : 2147483648 = %d (int) = ", 2147483648);
 	for (int i = architecture-1; i >= 0; --i)
 	{
-		printf("%d ", bits[i]);
+		printf("%d ", binary_number[i]);
 	}
 	printf("\n\n");
-	convert_int_to_binary(bits, 2147483647, -1, architecture);
+	convert_int_to_binary(binary_number, 2147483647, -1, architecture);
 	printf("mask -1 : 2147483647 = %d (int) = ", 2147483647);
 	for (int i = architecture-1; i >= 0; --i)
 	{
-		printf("%d ", bits[i]);
+		printf("%d ", binary_number[i]);
 	}
 	printf("\n\n");
-	convert_int_to_binary(bits, 2147483648, -1, architecture);
+	convert_int_to_binary(binary_number, 2147483648, -1, architecture);
 	printf("mask -1 : 2147483648 = %d (int) = ", 2147483648);
 	for (int i = architecture-1; i >= 0; --i)
 	{
-		printf("%d ", bits[i]);
+		printf("%d ", binary_number[i]);
 	}
 	printf("\n\n");
-	free(bits);
-	free(bits0);
+	free(binary_number);
 	architecture = 0;
 	return 0;
 }
