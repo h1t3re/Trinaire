@@ -19,9 +19,8 @@ void convert_int_to_binary(int *bits, int number, int mask, int binary_length)
 
 int main(int argc, char const *argv[])
 {
-	int architecture = 32;
+	int architecture = 32; // or 64
 	int *bits = (int *)malloc(architecture*sizeof(int));
-	int *bits0 = (int *)malloc(64*sizeof(int));
 	convert_int_to_binary(bits, 2147483647, 1, architecture);
 	printf("mask 1 : 2147483647 = %d (int) = ", 2147483647);
 	for (int i = architecture-1; i >= 0; --i)
@@ -36,8 +35,15 @@ int main(int argc, char const *argv[])
 		printf("%d ", bits[i]);
 	}
 	printf("\n\n");
-	convert_int_to_binary(bits, 3, -1, architecture);
-	printf("mask -1 : 3 = %d (int) = ", 3);
+	convert_int_to_binary(bits, 2147483647, -1, architecture);
+	printf("mask -1 : 2147483647 = %d (int) = ", 2147483647);
+	for (int i = architecture-1; i >= 0; --i)
+	{
+		printf("%d ", bits[i]);
+	}
+	printf("\n\n");
+	convert_int_to_binary(bits, 2147483648, -1, architecture);
+	printf("mask -1 : 2147483648 = %d (int) = ", 2147483648);
 	for (int i = architecture-1; i >= 0; --i)
 	{
 		printf("%d ", bits[i]);
