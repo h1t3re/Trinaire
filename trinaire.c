@@ -36,6 +36,13 @@ int main(int argc, char const *argv[])
 		printf("%d ", bits[i]);
 	}
 	printf("\n\n");
+	convert_int_to_binary(bits, 3, -1, architecture);
+	printf("mask -1 : 3 = %d (int) = ", 3);
+	for (int i = architecture-1; i >= 0; --i)
+	{
+		printf("%d ", bits[i]);
+	}
+	printf("\n\n");
 	free(bits);
 	free(bits0);
 	architecture = 0;
