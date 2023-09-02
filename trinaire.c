@@ -25,7 +25,7 @@ int main(int argc, char const *argv[])
 	printf("mask 1 : 2147483647 = %d (int) = ", 2147483647);
 	for (int i = architecture-1; i >= 0; --i)
 	{
-		printf("%d ", bits[i]);
+		printf("%d ", binary_number[i]);
 	}
 	printf("\n\n");
 	convert_int_to_binary(binary_number, 2147483648, 1, architecture);
