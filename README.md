@@ -24,7 +24,7 @@ We can represent an int in 32 bit format with the following function:
 
 The line of bits of ints:
 
-![](line_of_bits_of_ints.png)
+![](line_of_bits_of_int.png)
 
 The understanding of the -1.
 Now to understand the -1. I calculated the binary value of some numbers with the binary mask of -1. Let's see a few examples:
